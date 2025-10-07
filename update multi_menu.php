@@ -46,3 +46,20 @@ function tampilkanMenuBertingkat(array $menu) {
 
 tampilkanMenuBertingkat($menu);
 ?>
+<?php
+function tampilkanMenuBertingkat(array $menu) {
+    echo "<ul>";
+    foreach ($menu as $item) {
+        echo "<li>" . $item["nama"];
+        if (isset($item["subMenu"])) {
+            // rekursif untuk sub menu
+            tampilkanMenuBertingkat($item["subMenu"]);
+        }
+        echo "</li>";
+    }
+    echo "</ul>";
+}
+
+// Panggil fungsi
+tampilkanMenuBertingkat($menu);
+?>
